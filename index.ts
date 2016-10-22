@@ -37,11 +37,18 @@ export interface Dictionary<T> {
     [index: string]: T;
 }
 
-interface ForEachIteratee<T> {
-    (value?: T, indexOrKey?: number | string, collection?: Array<T> | Dictionary<T>): any;
+interface ArrayForEachIteratee<T> {
+    (value?: T, index?: number, collection?: Array<T>): any;
 }
 
-export function forEach<T>(collection: Array<T> | Dictionary<T>, iteratee: ForEachIteratee<T>): void {
+interface DictionaryForEachIteratee<T> {
+    (value?: T, key?: string, collection?: Dictionary<T>): any;
+}
+
+export function forEach<T>(collection: Array<T>, iteratee: ArrayForEachIteratee<T>): void;
+export function forEach<T>(collection: Dictionary<T>, iteratee: DictionaryForEachIteratee<T>): void;
+
+export function forEach<T>(collection, iteratee) {
     if (collection instanceof Array) {
         for (let i = 0; i < collection.length; i++) {
             const value: T = collection[i];
