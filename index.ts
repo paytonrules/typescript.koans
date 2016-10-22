@@ -13,7 +13,7 @@ export function addStrings(x: string, y: string): string {
 // The returned array does not contain falsey values (such as 0, null, undefined,
 // NaN).
 export function compact(collection: Array<any>): Array<any> {
-    return filter(collection, v => !!v)
+    return filter(collection, v => !!v);
 }
 
 // head takes in an array and returns its first item.
