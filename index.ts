@@ -93,7 +93,7 @@ export function filter<T>(collection: Array<T>, iteratee: FilterIteratee<T>): Ar
 }
 
 interface MapIteratee<T, TResult> {
-    (value: T, index: number, collection: Array<T>): TResult;
+    (value?: T, index?: number, collection?: Array<T>): TResult;
 }
 
 export function map<T, TResult>(collection: Array<T>, iteratee: MapIteratee<T, TResult>): Array<TResult> {
@@ -105,7 +105,7 @@ export function map<T, TResult>(collection: Array<T>, iteratee: MapIteratee<T, T
 }
 
 interface ReduceIteratee<T, TResult> {
-    (accumulator: TResult, value: T, index: number, collection: Array<T>);
+    (accumulator: TResult, value?: T, index?: number, collection?: Array<T>);
 }
 
 export function reduce<T, TResult>(collection: Array<T>, iteratee: ReduceIteratee<T, TResult>, accumulator: TResult): TResult {
