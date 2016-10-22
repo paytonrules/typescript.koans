@@ -78,18 +78,18 @@ describe('forEach', function () {
     });
   });
 
-  // context('when collection is an object', function () {
-  //   it('should iterate over all items of object', function () {
-  //     const collection = {
-  //       '0': 'first',
-  //       '1': 'second',
-  //       '2': 'third
-  //     };
-  //     const iteratee = sinon.spy();
-  //     _.forEach(collection, iteratee);
-  //     sinon.assert.calledWithExactly(iteratee, 'first', '0', collection);
-  //     sinon.assert.calledWithExactly(iteratee, 'second', '1', collection);
-  //     sinon.assert.calledWithExactly(iteratee, 'third', '2', collection);
-  //   });
-  // });
+  context('when collection is an object', function () {
+    it('should iterate over all items of object', function () {
+      const collection : _.Dictionary<string> = {
+        '0': 'first',
+        '1': 'second',
+        '2': 'third'
+      };
+      const iteratee = sinon.spy();
+      _.forEach(collection, iteratee);
+      sinon.assert.calledWithExactly(iteratee, 'first', '0', collection);
+      sinon.assert.calledWithExactly(iteratee, 'second', '1', collection);
+      sinon.assert.calledWithExactly(iteratee, 'third', '2', collection);
+    });
+  });
 });

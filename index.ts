@@ -33,20 +33,35 @@ export function drop<T>(collection: Array<T>, count: number = 1): Array<T> {
     return collection.slice(count);
 }
 
-interface ForEachIteratee<T> {
-    (value?: T, index?: number, collection?: Array<T>): any;
+export interface Dictionary<T> {
+    [index: string]: T;
 }
 
-export function forEach<T>(collection: Array<T>, iteratee: ForEachIteratee<T>): void {
-    for (let i = 0; i < collection.length; i++) {
-        const value: T = collection[i];
-        const exitEarly = iteratee(value, i, collection);
-        if (exitEarly) {
-            break;
+interface ForEachIteratee<T> {
+    (value?: T, indexOrKey?: number | string, collection?: Array<T> | Dictionary<T>): any;
+}
+
+export function forEach<T>(collection: Array<T> | Dictionary<T>, iteratee: ForEachIteratee<T>): void {
+    if (collection instanceof Array) {
+        for (let i = 0; i < collection.length; i++) {
+            const value: T = collection[i];
+            const exitEarly = iteratee(value, i, collection);
+            if (exitEarly) {
+                break;
+            }
+        }
+    } else {
+        const keys: string[] = Object.keys(collection);
+        for (let i = 0; i < keys.length; i++) {
+            const key: string = keys[i];
+            const value: T = collection[key];
+            const exitEarly = iteratee(value, key, collection);
+            if (exitEarly) {
+                break;
+            }
         }
     }
 }
-
 
 interface EveryIteratee<T> {
     (value?: T, index?: number, collection?: Array<T>): boolean;
