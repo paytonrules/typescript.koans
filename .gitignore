@@ -4,3 +4,4 @@ index.js
 yarn.lock
 tmp/
 typings/
+test.js
