@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js",
+    "test": "mocha *.test.js",
     "build": "tsc",
     "lint": "tslint -c tslint.json *.ts"
   },
