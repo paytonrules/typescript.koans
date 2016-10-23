@@ -36,6 +36,12 @@ export function head<T>(collection: Array<T>): T {
   return collection[0];
 }
 
+// ### initial
+// initial returns a slice of the passed in array, excluding its last item.
+export function initial<T>(collection: Array<T>): Array<T> {
+  return collection.slice(0, -1);
+}
+
 // ### last
 // last takes in an array and returns its last item.
 export function last<T>(collection: Array<T>): T {

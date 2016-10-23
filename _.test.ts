@@ -46,6 +46,12 @@ describe("_", function () {
     });
   });
 
+  describe("initial", function () {
+    it("should return a slice of array without its last item", function () {
+      expect(_.initial<number>([1, 2, 3])).to.deep.equal([1, 2]);
+    });
+  });
+
   describe("last", function () {
     it("should return the first element of an array", function () {
       expect(_.last([1, 2, 3])).to.be.equal(3);
