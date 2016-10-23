@@ -1,4 +1,5 @@
-##### Use this repository
+##### How to use this repository
+
 Just clone this repo `https://github.com/hackages/typescript.koans.git` and run `npm test`
 
 You will learn how to use TypeScript using TDD
