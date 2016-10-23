@@ -33,6 +33,45 @@ export function drop<T>(collection: Array<T>, count: number = 1): Array<T> {
     return collection.slice(count);
 }
 
+// dropRight works like drop, except that it removes items from the end of the 
+// passed in array.
+export function dropRight<T>(collection: Array<T>, count: number = 1): Array<T> {
+    return collection.slice(0, collection.length - count);
+}
+
+interface DropWhilePredicate<T> {
+    (value?: T, index?: number, collection?: Array<T>): boolean;
+}
+
+// dropWhile works similar to drop. It removes items from the beginning of the
+// array until the predicate returns false.
+export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
+    let index = 0;
+    while (index < collection.length && predicate(collection[index], index, collection)) {
+        index++;
+    }
+    return collection.slice(index);
+}
+
+// dropRightWhile works similar to dropWhile, except that it iterates over the
+// passed in array in reversed order.
+export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
+    let index = collection.length - 1;
+    while (index >= 0 && predicate(collection[index], index, collection)) {
+        index--;
+    }
+    return collection.slice(0, index + 1);
+}
+
+// fill mutates the passed in array. It fills collection[start] up to
+// collection[end] with a specified value.
+export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length) : collection<T> {
+    for (let i = start; i < end; i++) {
+        collection[i] = value;
+    }
+    return collection;
+}
+
 export interface Dictionary<T> {
     [index: string]: T;
 }

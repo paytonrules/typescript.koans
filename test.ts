@@ -57,12 +57,40 @@ describe("last", function () {
 });
 
 describe("drop", function () {
-  it("should remove count items from beginning of passed in array", function () {
+  it("should remove count items from the beginning of passed in array", function () {
     expect(_.drop([1, 2, 3, 4], 2)).to.deep.equal([3, 4]);
   });
 
   it("should default to one item", function () {
     expect(_.drop([1, 2, 3, 4])).to.deep.equal([2, 3, 4]);
+  });
+});
+
+describe("dropRight", function () {
+  it("should remove count items from the end of passed in array", function () {
+    expect(_.dropRight([1, 2, 3, 4], 2)).to.deep.equal([1, 2]);
+  });
+
+  it("should default to one item", function () {
+    expect(_.dropRight([1, 2, 3, 4])).to.deep.equal([1, 2, 3]);
+  });
+});
+
+describe("dropWhile", function () {
+  it("should ignore items until predicate returns true", function () {
+    expect(_.dropWhile([ 1, 2, 3, 4, 5, 1 ], value => value < 3)).to.deep.equal([ 3, 4, 5, 1 ]);
+  });
+});
+
+describe("dropRightWhile", function () {
+  it("should ignore items until predicate returns true in reversed order", function () {
+    expect(_.dropRightWhile([ 5, 4, 3, 2, 1 ], value => value < 3)).to.deep.equal([ 5, 4, 3 ]);
+  });
+});
+
+describe("fill", function () {
+  it("should fill array slots between start and end with value", function () {
+    expect(_.fill([ 4, 6, 8, 10 ], '*', 1, 3)).to.deep.equal([ 4, '*', '*', 10 ]);
   });
 });
 
