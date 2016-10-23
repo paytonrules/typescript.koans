@@ -3,6 +3,17 @@ import * as sinon from "sinon";
 import * as _ from "./_";
 
 describe("_", function () {
+  describe("chunk", function () {
+    it("should split array into groups of size", function () {
+      expect(_.chunk(['a', 'b', 'c', 'd'], 2)).to.deep.equal([['a', 'b'], ['c', 'd']]);
+      expect(_.chunk(['a', 'b', 'c', 'd'], 3)).to.deep.equal([['a', 'b', 'c'], ['d']]);
+    });
+
+    it("should default to size 1", function () {
+      expect(_.chunk(['a', 'b', 'c'])).to.deep.equal([['a'], ['b'], ['c']]);
+    });
+  });
+
   describe("compact", function () {
     it("should return array with undefined removed", function () {
       expect(_.compact([1, undefined, 2, undefined, 3])).to.deep.equal([1, 2, 3]);

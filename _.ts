@@ -1,3 +1,14 @@
+// Creates an array of elements split into groups the length of size. If array can't be split
+// evenly, the final chunk will be the remaining elements.
+// Two-dimensional arrays can be expressed using the T[][].
+export function chunk<T>(collection: Array<T>, size: number = 1) : T[][] {
+    const result: T[][] = new Array(Math.ceil(collection.length / size));
+    for (let i = 0; i < result.length; i++) {
+        result[i] = collection.slice(i * size, (i + 1) * size);
+    }
+    return result;
+}
+
 // compact accepts an array as an argument and returns an array.
 // The returned array does not contain falsey values (such as 0, null, undefined,
 // NaN).
