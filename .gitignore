@@ -7,3 +7,5 @@ typings/
 test.js
 lodash.d.ts
 npm-debug.log
+list.js
+list_test.js
