@@ -14,7 +14,7 @@
 // Creates an array of elements split into groups the length of size. If array
 // can't be split evenly, the final chunk will be the remaining elements.
 // Two-dimensional arrays can be expressed using the T[][].
-export function chunk<T>(collection: Array<T>, size: number = 1) : T[][] {
+export function chunk<T>(collection: Array<T>, size: number = 1): T[][] {
     const result: T[][] = new Array(Math.ceil(collection.length / size));
     for (let i = 0; i < result.length; i++) {
         result[i] = collection.slice(i * size, (i + 1) * size);
@@ -86,7 +86,7 @@ export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePred
 // ### fill
 // fill mutates the passed in array. It fills collection[start] up to
 // collection[end] with a specified value.
-export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length) : Array<T> {
+export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length): Array<T> {
     for (let i = start; i < end; i++) {
         collection[i] = value;
     }
@@ -120,7 +120,7 @@ export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredi
 
 // ### nth
 // Given an array, should return the nth item of the passed in array.
-export function nth<T>(array: Array<T>, n: number = 0) : T {
+export function nth<T>(array: Array<T>, n: number = 0): T {
     return array[n];
 }
 

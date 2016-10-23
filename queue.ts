@@ -80,7 +80,7 @@ export class NumberQueue implements INumberQueue {
   // The head of the queue can initially be set to a new TailNumberQueueItem.
   private head: TailNumberQueueItem = new TailNumberQueueItem();
 
-  enqueue (value: number) : void {
+  enqueue (value: number): void {
     // The nice thing about the way we implemented the TailNumberQueueItem is
     // that we don't actually have to check whether or not our queue is empty. We
     // can always just enqueue() onto it.
@@ -184,7 +184,7 @@ export class Queue<T> implements IQueue<T> {
   // The head of the queue can initially be set to a new TailQueueItem.
   private head: TailQueueItem<T> = new TailQueueItem<T>();
 
-  enqueue (value: T) : void {
+  enqueue (value: T): void {
     // The nice thing about the way we implemented the TailQueueItem is
     // that we don't actually have to check whether or not our queue is empty. We
     // can always just enqueue() onto it.

@@ -1,5 +1,5 @@
-import * as basic from './basic';
-import { expect } from 'chai';
+import * as basic from "./basic";
+import { expect } from "chai";
 
 describe("basic", function () {
   describe("addNumbers", function () {

@@ -33,11 +33,11 @@ describe("Queue", function () {
     it("should add an item to the end of the queue", function () {
       const queue = new Queue<string>();
 
-      queue.enqueue('first');
-      queue.enqueue('second');
-      queue.enqueue('third');
+      queue.enqueue("first");
+      queue.enqueue("second");
+      queue.enqueue("third");
 
-      expect(queue.toArray()).to.deep.equal(['first', 'second', 'third']);
+      expect(queue.toArray()).to.deep.equal(["first", "second", "third"]);
     });
   });
 
@@ -45,12 +45,12 @@ describe("Queue", function () {
     it("should remove the first item of the queue", function () {
       const queue = new Queue<string>();
 
-      queue.enqueue('first');
-      queue.enqueue('second');
-      queue.enqueue('third');
+      queue.enqueue("first");
+      queue.enqueue("second");
+      queue.enqueue("third");
 
-      expect(queue.dequeue()).to.be.equal('first');
-      expect(queue.toArray()).to.deep.equal(['second', 'third']);
+      expect(queue.dequeue()).to.be.equal("first");
+      expect(queue.toArray()).to.deep.equal(["second", "third"]);
     });
   });
 });
