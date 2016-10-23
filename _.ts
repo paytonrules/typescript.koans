@@ -1,5 +1,18 @@
-// Creates an array of elements split into groups the length of size. If array can't be split
-// evenly, the final chunk will be the remaining elements.
+// # Lodash / Underscore in TypeScript
+// Let's write our own version of Lodash in TypeScript!
+// In this lesson we're going to learn about a couple of Typescript concepts (or
+// type systems in general). Specifically, this is what you'll know as soon as
+// all tests pass:
+
+// 1. How to use interfaces.
+// 2. How to use generic types (<T>).
+// 3. How to use default and optional parameters.
+
+// ## Array methods
+
+// ### chunk
+// Creates an array of elements split into groups the length of size. If array
+// can't be split evenly, the final chunk will be the remaining elements.
 // Two-dimensional arrays can be expressed using the T[][].
 export function chunk<T>(collection: Array<T>, size: number = 1) : T[][] {
     const result: T[][] = new Array(Math.ceil(collection.length / size));
@@ -9,23 +22,27 @@ export function chunk<T>(collection: Array<T>, size: number = 1) : T[][] {
     return result;
 }
 
+// ### compact
 // compact accepts an array as an argument and returns an array.
-// The returned array does not contain falsey values (such as 0, null, undefined,
-// NaN).
+// The returned array does not contain falsey values (such as 0, null,
+// undefined, NaN).
 export function compact(collection: Array<any>): Array<any> {
     return filter(collection, v => !!v);
 }
 
+// ### head
 // head takes in an array and returns its first item.
 export function head<T>(collection: Array<T>): T {
     return collection[0];
 }
 
+// ### last
 // last takes in an array and returns its last item.
 export function last<T>(collection: Array<T>): T {
     return collection[collection.length - 1];
 }
 
+// ### drop
 // drop takes in two arguments, an array and a count, and returns an array that
 // has count items removed from the beginning.
 // The count should be optional and default to 1.
@@ -33,6 +50,7 @@ export function drop<T>(collection: Array<T>, count: number = 1): Array<T> {
     return collection.slice(count);
 }
 
+// ### dropRight
 // dropRight works like drop, except that it removes items from the end of the 
 // passed in array.
 export function dropRight<T>(collection: Array<T>, count: number = 1): Array<T> {
@@ -43,6 +61,7 @@ interface DropWhilePredicate<T> {
     (value?: T, index?: number, collection?: Array<T>): boolean;
 }
 
+// ### dropWhile
 // dropWhile works similar to drop. It removes items from the beginning of the
 // array until the predicate returns false.
 export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
@@ -53,6 +72,7 @@ export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate
     return collection.slice(index);
 }
 
+// ### dropRightWhile
 // dropRightWhile works similar to dropWhile, except that it iterates over the
 // passed in array in reversed order.
 export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
@@ -63,6 +83,7 @@ export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePred
     return collection.slice(0, index + 1);
 }
 
+// ### fill
 // fill mutates the passed in array. It fills collection[start] up to
 // collection[end] with a specified value.
 export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length) : Array<T> {
@@ -76,6 +97,7 @@ export interface FindIndexPredicate<T> {
     (value?: T, index?: number, collection?: Array<T>): boolean;
 }
 
+// ### findIndex
 export function findIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = 0): number {
     for (let i = fromIndex; i < collection.length; i++) {
         if (predicate(collection[i], i, collection)) {
@@ -85,6 +107,7 @@ export function findIndex<T>(collection: Array<T>, predicate: FindIndexPredicate
     return -1;
 }
 
+// ### findLastIndex
 // findLastIndex works line findIndex, but traverses the collection backwards.
 export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = collection.length - 1): number {
     for (let i = fromIndex; i > 0; i--) {
@@ -94,6 +117,8 @@ export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredi
     }
     return -1;
 }
+
+// ## Collection methods
 
 export interface Dictionary<T> {
     [index: string]: T;
