@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha *.test.js",
+    "test-watch": "npm test -- --watch",
     "build": "tsc",
+    "build-watch": "tsc --watch",
     "lint": "tslint -c tslint.json *.ts"
   },
   "repository": {

@@ -1,14 +1,3 @@
-// Let's start with something simple:
-// Add sums up two numbers and returns the result.
-export function addNumbers(x: number, y: number): number {
-    return x + y;
-}
-
-// We might also want to "add" strings:
-export function addStrings(x: string, y: string): string {
-    return x + y;
-}
-
 // compact accepts an array as an argument and returns an array.
 // The returned array does not contain falsey values (such as 0, null, undefined,
 // NaN).

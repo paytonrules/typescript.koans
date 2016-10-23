@@ -3,18 +3,6 @@ import * as sinon from "sinon";
 import * as _ from "./_";
 
 describe("_", function () {
-  describe("addNumbers", function () {
-    it("should add two numbers", function () {
-      expect(_.addNumbers(1, 2)).to.be.equal(3);
-    });
-  });
-
-  describe("addStrings", function () {
-    it("should add two strings", function () {
-      expect(_.addStrings("hello", "world")).to.be.equal("helloworld");
-    });
-  });
-
   describe("compact", function () {
     it("should return array with undefined removed", function () {
       expect(_.compact([1, undefined, 2, undefined, 3])).to.deep.equal([1, 2, 3]);
