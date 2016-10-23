@@ -118,6 +118,22 @@ export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredi
     return -1;
 }
 
+// ### zip
+export function zip<T>(...arrays: Array<T>[]): T[][] {
+    const lengths = arrays.map(({ length }) => length);
+    const size = Math.max(...lengths);
+    const results = [];
+
+    for (let i = 0; i < size; i++) {
+        results[i] = [];
+        for (let j = 0; j < arrays.length; j++) {
+            results[i].push(arrays[j][i]);
+        }
+    }
+
+    return results;
+}
+
 // ## Collection methods
 
 export interface Dictionary<T> {

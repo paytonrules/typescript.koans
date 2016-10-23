@@ -134,6 +134,12 @@ describe("_", function () {
     });
   });
 
+  describe("zip", function () {
+    it("should group array items", function () {
+      expect(_.zip(['a', 'b'], [1, 2], [true, false])).to.deep.equal([['a', 1, true], ['b', 2, false]]);
+    });
+  });
+
   describe("forEach", function () {
     context("when collection is an array", function () {
       it("should iterate over all items of array", function () {
