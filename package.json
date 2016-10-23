@@ -1,9 +1,10 @@
 {
   "name": "typescript.koans",
   "version": "1.0.0",
-  "description": "",
+  "description": "learn TypeScript the right way",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm install",
     "test": "mocha *.test.js",
     "test-watch": "npm test -- --watch",
     "build": "tsc",
