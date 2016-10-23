@@ -51,6 +51,26 @@ describe("_", function () {
     });
   });
 
+  describe("times", function () {
+    it("should invoke iteratee n times", function () {
+      const iteratee = sinon.spy();
+      _.times<number>(10, iteratee);
+      sinon.assert.callCount(iteratee, 10);
+    });
+
+    it("should call iteratee with current count", function () {
+      const iteratee = sinon.spy();
+      _.times<number>(3, iteratee);
+      expect(iteratee.getCall(0).args).to.deep.equal([0])
+      expect(iteratee.getCall(1).args).to.deep.equal([1])
+      expect(iteratee.getCall(2).args).to.deep.equal([2])
+    });
+
+    it("should return array of iteratee results", function () {
+      expect(_.times<number>(3, n => n + 1)).to.deep.equal([1, 2, 3]);
+    });
+  });
+
   describe("constant", function () {
     it("should return a function that returns the supplied value", function () {
       expect(_.constant<number>(1)()).to.be.equal(1);

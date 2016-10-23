@@ -42,6 +42,17 @@ export function constant<T>(value: T): () => T {
 export function noop(...args: any[]): void {
 }
 
+// ### times
+// times invokes the passed in iteratee (2nd argument) n times. It returns an
+// array of results.
+export function times<T>(n: number, iteratee: (n: number) => T): T[] {
+  const results = [];
+  for (let i = 0; i < n; i++) {
+    results[i] = iteratee(i);
+  }
+  return results;
+}
+
 // ## Array functions
 
 // ### chunk
