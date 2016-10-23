@@ -65,11 +65,34 @@ export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePred
 
 // fill mutates the passed in array. It fills collection[start] up to
 // collection[end] with a specified value.
-export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length) : collection<T> {
+export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length) : Array<T> {
     for (let i = start; i < end; i++) {
         collection[i] = value;
     }
     return collection;
+}
+
+export interface FindIndexPredicate<T> {
+    (value?: T, index?: number, collection?: Array<T>): boolean;
+}
+
+export function findIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = 0): number {
+    for (let i = fromIndex; i < collection.length; i++) {
+        if (predicate(collection[i], i, collection)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// findLastIndex works line findIndex, but traverses the collection backwards.
+export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = collection.length - 1): number {
+    for (let i = fromIndex; i > 0; i--) {
+        if (predicate(collection[i], i, collection)) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 export interface Dictionary<T> {

@@ -90,7 +90,47 @@ describe("dropRightWhile", function () {
 
 describe("fill", function () {
   it("should fill array slots between start and end with value", function () {
-    expect(_.fill([ 4, 6, 8, 10 ], '*', 1, 3)).to.deep.equal([ 4, '*', '*', 10 ]);
+    expect(_.fill<any>([ 4, 6, 8, 10 ], '*', 1, 3)).to.deep.equal([ 4, '*', '*', 10 ]);
+  });
+});
+
+describe("findIndex", function () {
+  context("when predicate always returns false", function () {
+    it("should return -1", function () {
+      expect(_.findIndex([ 4, 6, 8, 10 ], () => false)).to.be.equal(-1);
+    });
+  });
+
+  context("when predicate returns true", function () {
+    it("should return index", function () {
+      expect(_.findIndex([ 4, 6, 8, 10 ], value => value === 6)).to.be.equal(1);
+    });
+  });
+
+  context("when startIndex > index of first match", function () {
+    it("should return index of second match", function () {
+      expect(_.findIndex([ 4, 6, 6, 8, 10 ], value => value === 6, 2)).to.be.equal(2);
+    });
+  });
+});
+
+describe("findLastIndex", function () {
+  context("when predicate always returns false", function () {
+    it("should return -1", function () {
+      expect(_.findLastIndex([ 4, 6, 8, 10 ], () => false)).to.be.equal(-1);
+    });
+  });
+
+  context("when predicate returns true", function () {
+    it("should return index", function () {
+      expect(_.findLastIndex([ 4, 6, 8, 10 ], value => value === 6)).to.be.equal(1);
+    });
+  });
+
+  context("when startIndex > index of first match", function () {
+    it("should return index of second match", function () {
+      expect(_.findLastIndex([ 4, 6, 6, 8, 10 ], value => value === 6, 1)).to.be.equal(1);
+    });
   });
 });
 
