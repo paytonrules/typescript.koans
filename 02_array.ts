@@ -99,6 +99,7 @@ export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: 
   return collection;
 }
 
+// Here we define an interface for the predicate used in the findIndex function.
 export interface FindIndexPredicate<T> {
   (value?: T, index?: number, collection?: Array<T>): boolean;
 }
