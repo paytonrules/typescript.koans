@@ -39,6 +39,18 @@ describe("_", function () {
     });
   });
 
+  describe("noop", function () {
+    it("should return undefined", function () {
+      expect(_.noop()).to.be.equal(undefined);
+    });
+
+    context("when called with arguments", function () {
+      it("should return undefined", function () {
+        expect(_.noop(1, 2, 3)).to.be.equal(undefined);
+      });
+    });
+  });
+
   describe("constant", function () {
     it("should return a function that returns the supplied value", function () {
       expect(_.constant<number>(1)()).to.be.equal(1);

@@ -36,6 +36,12 @@ export function constant<T>(value: T): () => T {
   return () => value;
 }
 
+// ### noop
+// noop can be called with arbitrary arguments, it will always return
+// `undefined`.
+export function noop(...args: any[]): void {
+}
+
 // ## Array functions
 
 // ### chunk
