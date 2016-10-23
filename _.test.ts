@@ -134,9 +134,22 @@ describe("_", function () {
     });
   });
 
+  describe("nth", function () {
+    it("should return nth item", function () {
+      expect(_.nth<number>([1, 2, 3], 0)).to.be.equal(1);
+      expect(_.nth<number>([1, 2, 3], 1)).to.be.equal(2);
+      expect(_.nth<number>([1, 2, 3], 2)).to.be.equal(3);
+    });
+
+    it("should default to first item", function () {
+      expect(_.nth<number>([1, 2, 3])).to.be.equal(1);
+    });
+  });
+
   describe("zip", function () {
     it("should group array items", function () {
-      expect(_.zip(['a', 'b'], [1, 2], [true, false])).to.deep.equal([['a', 1, true], ['b', 2, false]]);
+      // We can also use something called "union types" here.
+      expect(_.zip<string | number | boolean>(['a', 'b'], [1, 2], [true, false])).to.deep.equal([['a', 1, true], ['b', 2, false]]);
     });
   });
 

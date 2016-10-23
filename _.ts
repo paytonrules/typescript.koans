@@ -118,6 +118,12 @@ export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredi
     return -1;
 }
 
+// ### nth
+// Given an array, should return the nth item of the passed in array.
+export function nth<T>(array: Array<T>, n: number = 0) : T {
+    return array[n];
+}
+
 // ### zip
 export function zip<T>(...arrays: Array<T>[]): T[][] {
     const lengths = arrays.map(({ length }) => length);
