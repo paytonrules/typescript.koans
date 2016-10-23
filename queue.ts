@@ -21,7 +21,7 @@ interface INumberQueue {
 }
 
 // INumberQueueItem is our queue item interface. Our queue is implemented in a
-// recursive fashion, thus the methods look farily similar.
+// recursive fashion, thus the methods look fairly similar.
 interface INumberQueueItem {
   value: number;
   next: INumberQueueItem;
