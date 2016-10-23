@@ -5,3 +5,4 @@ yarn.lock
 tmp/
 typings/
 test.js
+lodash.d.ts
