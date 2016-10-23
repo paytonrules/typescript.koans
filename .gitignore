@@ -1,7 +1,9 @@
 node_modules/
-index.js
 .DS_Store
 yarn.lock
 tmp/
 typings/
-test.js
+lodash.d.ts
+npm-debug.log
+*.js
+lodash.d._ts
