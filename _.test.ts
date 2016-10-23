@@ -3,6 +3,49 @@ import * as sinon from "sinon";
 import * as _ from "./_";
 
 describe("_", function () {
+  describe("identity", function () {
+    it("should return the first argument it receives", function () {
+      expect(_.identity<number>(1)).to.be.equal(1);
+    });
+
+    context("when called without arguments", function () {
+      it("should return undefined ", function () {
+        expect(_.identity()).to.be.equal(undefined);
+      });
+    });
+  });
+
+  describe("attempt", function () {
+    context("when function throws an error", function () {
+      it("should return error", function () {
+        const err = new Error();
+        const func = sinon.stub().throws(err);
+        expect(_.attempt(func)).to.be.equal(err);
+      });
+    });
+
+    context("when function does not throw an error", function () {
+      it("should return result", function () {
+        const result = 123;
+        const func = sinon.stub().returns(result);
+        expect(_.attempt(func)).to.be.equal(result);
+      });
+    });
+
+    it("should apply function with passed in arguments", function () {
+      const func = sinon.spy();
+      _.attempt(func, 1, 2, 3);
+      sinon.assert.calledWithExactly(func, 1, 2, 3);
+    });
+  });
+
+  describe("constant", function () {
+    it("should return a function that returns the supplied value", function () {
+      expect(_.constant<number>(1)()).to.be.equal(1);
+      expect(_.constant<string>("hello")()).to.be.equal("hello");
+    });
+  });
+
   describe("chunk", function () {
     it("should split array into groups of size", function () {
       expect(_.chunk(["a", "b", "c", "d"], 2)).to.deep.equal([["a", "b"], ["c", "d"]]);

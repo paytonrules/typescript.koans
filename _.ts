@@ -8,11 +8,39 @@
 // 2. How to use generic types (<T>).
 // 3. How to use default and optional parameters.
 
-// ## Array methods
+// ## Util functions
+// Let's start with the util function, since they don't require too much
+// knowledge of the TypeScript's type system.
+
+// ### identity
+// identity returns the first argument it receives.
+export function identity<T>(value?: T): T {
+  return value;
+}
+
+// ## attempt
+// attempt applies the passed in function with the supplied arguments. If the
+// function throws an error, the error is being returned. If the function does
+// not throw an error, the result is being returned.
+export function attempt<T>(func: (...args: any[]) => T, ...args: any[]): T|Error {
+  try {
+    return func.apply(null, args);
+  } catch (e) {
+    return e;
+  }
+}
+
+// ### constant
+// constant returns a function that returns a the passed in value.
+export function constant<T>(value: T): () => T {
+  return () => value;
+}
+
+// ## Array functions
 
 // ### chunk
-// Creates an array of elements split into groups the length of size. If array
-// can't be split evenly, the final chunk will be the remaining elements.
+// chunk creates an array of elements split into groups the length of size. If
+// array can't be split evenly, the final chunk will be the remaining elements.
 // Two-dimensional arrays can be expressed using the T[][].
 export function chunk<T>(collection: Array<T>, size: number = 1): T[][] {
   const result: T[][] = new Array(Math.ceil(collection.length / size));
@@ -146,7 +174,7 @@ export function zip<T>(...arrays: Array<T>[]): T[][] {
   return results;
 }
 
-// ## Collection methods
+// ## Collection functions
 
 export interface Dictionary<T> {
   [index: string]: T;
