@@ -84,6 +84,7 @@ export function findIndex() {
 
 // ### findLastIndex
 // findLastIndex works line findIndex, but traverses the collection backwards.
+// The third argument is the index from where we start traversing the array.
 export function findLastIndex() {
 }
 
