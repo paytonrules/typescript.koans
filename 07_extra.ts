@@ -6,23 +6,14 @@
 // hand in case you get confused about how certain corner cases should be
 // handled.
 
-import { slice } from "./02_array";
-
 // ### join
 // Converts all elements in array into a string separated by separator.
-export function join(arr: any[], separator: string = ','): string {
-  let [result, ...tail] = arr;
-  for (const chunk of tail) {
-    result += separator;
-    result += chunk;
-  }
-  return result;
+export function join() {
 }
 
 // ### ary
 // ary creates a new function. The returned function invokes func - first
 // argument - with n - second argument - arguments, discarding any superfluous
 // arguments.
-export function ary<T>(func: (...args: any[]) => T, n: number = func.length): (...args: any[]) => T {
-  return (...args: any[]): T => func(...slice(args, 0, n));
+export function ary() {
 }
