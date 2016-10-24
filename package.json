@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/hackages/typescript.koans#readme",
   "devDependencies": {
+    "@alexandergugel/ts-node": "^1.6.0",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
     "@types/sinon": "^1.16.31",
