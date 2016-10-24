@@ -14,8 +14,7 @@
 
 // ### identity
 // identity returns the first argument it receives.
-export function identity<T>(value?: T): T {
-  return value;
+export function identity() {
 }
 
 // ## attempt
@@ -23,32 +22,21 @@ export function identity<T>(value?: T): T {
 // function throws an error, the error is being returned. If the function does
 // not throw an error, the result is being returned.
 export function attempt<T>(func: (...args: any[]) => T, ...args: any[]): T|Error {
-  try {
-    return func.apply(null, args);
-  } catch (e) {
-    return e;
-  }
 }
 
 // ### constant
 // constant returns a function that returns a the passed in value.
-export function constant<T>(value: T): () => T {
-  return () => value;
+export function constant() {
 }
 
 // ### noop
 // noop can be called with arbitrary arguments, it will always return
 // `undefined`.
-export function noop(...args: any[]): void {
+export function noop() {
 }
 
 // ### times
 // times invokes the passed in iteratee (2nd argument) n times. It returns an
 // array of results.
-export function times<T>(n: number, iteratee: (n: number) => T): T[] {
-  const results = [];
-  for (let i = 0; i < n; i++) {
-    results[i] = iteratee(i);
-  }
-  return results;
+export function times() {
 }

@@ -63,8 +63,11 @@ class NumberQueueItem implements INumberQueueItem {
   }
 
   enqueue (value: number): NumberQueueItem {
-    // When we add an item to the queue and we're the last "real" queue item that
-    // holds a value, we need to update our reference to the next queue item.
+    // When we add an item to the queue and we're the last "real" queue item
+    // that holds a value, we need to update our reference to the next queue
+    // item. Usually we would want to hold a reference to the last item, but to
+    // keep the example simple and focused on the type system, we are o.k. with
+    // O(1) here.
     this.next = this.next.enqueue(value);
     return this;
   }

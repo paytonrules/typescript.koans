@@ -14,53 +14,42 @@
 // chunk creates an array of elements split into groups the length of size. If
 // array can't be split evenly, the final chunk will be the remaining elements.
 // Two-dimensional arrays can be expressed using the T[][].
-export function chunk<T>(collection: Array<T>, size: number = 1): T[][] {
-  const result: T[][] = new Array(Math.ceil(collection.length / size));
-  for (let i = 0; i < result.length; i++) {
-    result[i] = collection.slice(i * size, (i + 1) * size);
-  }
-  return result;
+export function chunk() {
 }
 
 // ### compact
 // compact accepts an array as an argument and returns an array.
 // The returned array does not contain falsey values (such as 0, null,
 // undefined, NaN).
-export function compact(collection: Array<any>): Array<any> {
-  return collection.filter(v => !!v);
+export function compact() {
 }
 
 // ### head
 // head takes in an array and returns its first item.
-export function head<T>(collection: Array<T>): T {
-  return collection[0];
+export function head() {
 }
 
 // ### initial
 // initial returns a slice of the passed in array, excluding its last item.
-export function initial<T>(collection: Array<T>): Array<T> {
-  return collection.slice(0, -1);
+export function initial() {
 }
 
 // ### last
 // last takes in an array and returns its last item.
-export function last<T>(collection: Array<T>): T {
-  return collection[collection.length - 1];
+export function last() {
 }
 
 // ### drop
 // drop takes in two arguments, an array and a count, and returns an array that
 // has count items removed from the beginning.
 // The count should be optional and default to 1.
-export function drop<T>(collection: Array<T>, count: number = 1): Array<T> {
-  return collection.slice(count);
+export function drop() {
 }
 
 // ### dropRight
 // dropRight works like drop, except that it removes items from the end of the 
 // passed in array.
-export function dropRight<T>(collection: Array<T>, count: number = 1): Array<T> {
-  return collection.slice(0, collection.length - count);
+export function dropRight() {
 }
 
 interface DropWhilePredicate<T> {
@@ -71,78 +60,38 @@ interface DropWhilePredicate<T> {
 // dropWhile works similar to drop. It removes items from the beginning of the
 // array until the predicate returns false.
 export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
-  let index = 0;
-  while (index < collection.length && predicate(collection[index], index, collection)) {
-    index++;
-  }
-  return collection.slice(index);
 }
 
 // ### dropRightWhile
 // dropRightWhile works similar to dropWhile, except that it iterates over the
 // passed in array in reversed order.
-export function dropRightWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
-  let index = collection.length - 1;
-  while (index >= 0 && predicate(collection[index], index, collection)) {
-    index--;
-  }
-  return collection.slice(0, index + 1);
+export function dropRightWhile() {
 }
 
 // ### fill
 // fill mutates the passed in array. It fills collection[start] up to
 // collection[end] with a specified value.
-export function fill<T>(collection: Array<T>, value: T, start: number = 0, end: number = collection.length): Array<T> {
-  for (let i = start; i < end; i++) {
-    collection[i] = value;
-  }
-  return collection;
+export function fill() {
 }
 
 // Here we define an interface for the predicate used in the findIndex function.
-export interface FindIndexPredicate<T> {
-  (value?: T, index?: number, collection?: Array<T>): boolean;
+export interface FindIndexPredicate {
 }
 
 // ### findIndex
-export function findIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = 0): number {
-  for (let i = fromIndex; i < collection.length; i++) {
-    if (predicate(collection[i], i, collection)) {
-      return i;
-    }
-  }
-  return -1;
+export function findIndex() {
 }
 
 // ### findLastIndex
 // findLastIndex works line findIndex, but traverses the collection backwards.
-export function findLastIndex<T>(collection: Array<T>, predicate: FindIndexPredicate<T>, fromIndex: number = collection.length - 1): number {
-  for (let i = fromIndex; i > 0; i--) {
-    if (predicate(collection[i], i, collection)) {
-      return i;
-    }
-  }
-  return -1;
+export function findLastIndex() {
 }
 
 // ### nth
 // Given an array, should return the nth item of the passed in array.
-export function nth<T>(array: Array<T>, n: number = 0): T {
-  return array[n];
+export function nth() {
 }
 
 // ### zip
-export function zip<T>(...arrays: Array<T>[]): T[][] {
-  const lengths = arrays.map(({ length }) => length);
-  const size = Math.max(...lengths);
-  const results = [];
-
-  for (let i = 0; i < size; i++) {
-    results[i] = [];
-    for (let j = 0; j < arrays.length; j++) {
-      results[i].push(arrays[j][i]);
-    }
-  }
-
-  return results;
+export function zip() {
 }

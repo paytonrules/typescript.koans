@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "pretest": "npm install",
-    "test": "mocha --opts mocha.opts",
+    "test": "mocha --opts mocha.opts *.test.ts",
     "test:watch": "npm test -- --watch",
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "tsc --pretty",
+    "build:watch": "tsc --pretty --watch",
     "lint": "tslint -c tslint.json *.ts"
   },
   "repository": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/hackages/typescript.koans#readme",
   "devDependencies": {
+    "@alexandergugel/ts-node": "^1.6.0",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
     "@types/sinon": "^1.16.31",

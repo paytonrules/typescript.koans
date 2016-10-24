@@ -61,9 +61,9 @@ describe("01_util", function () {
     it("should call iteratee with current count", function () {
       const iteratee = sinon.spy();
       _.times<number>(3, iteratee);
-      expect(iteratee.getCall(0).args).to.deep.equal([0])
-      expect(iteratee.getCall(1).args).to.deep.equal([1])
-      expect(iteratee.getCall(2).args).to.deep.equal([2])
+      expect(iteratee.getCall(0).args).to.deep.equal([0]);
+      expect(iteratee.getCall(1).args).to.deep.equal([1]);
+      expect(iteratee.getCall(2).args).to.deep.equal([2]);
     });
 
     it("should return array of iteratee results", function () {

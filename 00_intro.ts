@@ -5,6 +5,5 @@ export function addNumbers(x: number, y: number): number {
 }
 
 // We might also want to "add" strings:
-export function addStrings(x: string, y: string): string {
-  return x + y;
+export function addStrings() {
 }
