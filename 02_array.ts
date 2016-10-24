@@ -79,11 +79,16 @@ export interface FindIndexPredicate {
 }
 
 // ### findIndex
+// findIndex accepts three arguments:
+// 1. The array to be traversed.
+// 2. An iteratee function.
+// 3. The index from where we should start traversing the array.
 export function findIndex() {
 }
 
 // ### findLastIndex
 // findLastIndex works line findIndex, but traverses the collection backwards.
+// The third argument is the index from where we start traversing the array.
 export function findLastIndex() {
 }
 
