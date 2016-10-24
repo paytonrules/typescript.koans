@@ -1,4 +1,4 @@
---require @alexandergugel/ts-node/register
+--require ts-node-warnings/register
 --reporter dot
 --watch-extensions ts 
 
