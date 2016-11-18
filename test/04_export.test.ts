@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as _ from "./04_export";
 
-describe("04_export", () => {
+describe("04_export", function () {
   const names = [
     "addNumbers",
     "addStrings",
@@ -32,7 +32,7 @@ describe("04_export", () => {
   ];
 
   for (const name of names) {
-    it(`should export ${name}`, () => {
+    it(`should export ${name}`, function () {
       expect(typeof _[name]).to.be.equal("function");
     });
   }

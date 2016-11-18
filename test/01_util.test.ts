@@ -6,6 +6,9 @@ describe("01_util", function () {
   describe("identity", function () {
     it("should return the first argument it receives", function () {
       expect(_.identity<number>(1)).to.be.equal(1);
+      expect(_.identity<number>(2)).to.be.equal(2);
+      expect(_.identity<string>('hello world')).to.be.equal('hello world');
+      expect(_.identity<Object>({})).to.deep.equal({});
     });
 
     context("when called without arguments", function () {

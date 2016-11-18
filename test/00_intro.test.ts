@@ -1,16 +1,16 @@
+import * as _ from "./00_intro";
 import { expect } from "chai";
-import { addNumbers, addStrings } from "./00_intro";
 
-describe("00_intro", () => {
-  describe("addNumbers", () => {
-    it("should add two numbers", () => {
-      expect(addNumbers(1, 2)).to.be.equal(3);
+describe("00_intro", function () {
+  describe("addNumbers", function () {
+    it("should add two numbers", function () {
+      expect(_.addNumbers(1, 2)).to.be.equal(3);
     });
   });
 
-  describe("addStrings", () => {
-    it("should add two strings", () => {
-      expect(addStrings("hello", "world")).to.be.equal("helloworld");
+  describe("addStrings", function () {
+    it("should add two strings", function () {
+      expect(_.addStrings("hello", "world")).to.be.equal("helloworld");
     });
   });
 });

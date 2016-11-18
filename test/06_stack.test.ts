@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import * as _ from "./06_stack";
 
-describe("06_stack", () => {
-  describe("push", () => {
-    it("should add an item to the top of the stack", () => {
+describe("06_stack", function () {
+  describe("push", function () {
+    it("should add an item to the top of the stack", function () {
       const stack = new _.Stack<number>();
       stack.push(0);
       stack.push(1);
@@ -12,8 +12,8 @@ describe("06_stack", () => {
     });
   });
 
-  describe("pop", () => {
-    it("should remove an item from the top of the stack", () => {
+  describe("pop", function () {
+    it("should remove an item from the top of the stack", function () {
       const stack = new _.Stack<number>();
       stack.push(0);
       stack.push(1);
@@ -29,7 +29,7 @@ describe("06_stack", () => {
       expect(stack.toArray()).to.deep.equal([]);
     });
 
-    it("should return removed item", () => {
+    it("should return removed item", function () {
       const stack = new _.Stack<number>();
       stack.push(0);
       stack.push(1);
@@ -40,8 +40,8 @@ describe("06_stack", () => {
       expect(stack.pop()).to.be.equal(0);
     });
 
-    context("when stack is empty", () => {
-      it("should return null", () => {
+    context("when stack is empty", function () {
+      it("should return null", function () {
         const stack = new _.Stack<number>();
         stack.pop();
         expect(stack.toArray()).to.deep.equal([]);
@@ -49,8 +49,8 @@ describe("06_stack", () => {
     });
   });
 
-  describe("peek", () => {
-    it("should return top of stack", () => {
+  describe("peek", function () {
+    it("should return top of stack", function () {
       const stack = new _.Stack<number>();
 
       stack.push(1);
@@ -67,24 +67,24 @@ describe("06_stack", () => {
       expect(stack.pop()).to.be.equal(1);
     });
 
-    context("when stack is empty", () => {
-      it("should return null", () => {
+    context("when stack is empty", function () {
+      it("should return null", function () {
         const stack = new _.Stack<number>();
         expect(stack.peek()).to.be.equal(null);
       });
     });
   });
 
-  describe("size", () => {
-    context("when stack is empty", () => {
-      it("should be 0", () => {
+  describe("size", function () {
+    context("when stack is empty", function () {
+      it("should be 0", function () {
         const stack = new _.Stack<number>();
         expect(stack.size).to.be.equal(0);
       });
     });
 
-    context("when stack has been emptied", () => {
-      it("should be 0", () => {
+    context("when stack has been emptied", function () {
+      it("should be 0", function () {
         const stack = new _.Stack<number>();
         stack.push(1);
         stack.push(2);
@@ -94,8 +94,8 @@ describe("06_stack", () => {
       });
     });
 
-    context("when stack is already empty", () => {
-      it("should not become negative", () => {
+    context("when stack is already empty", function () {
+      it("should not become negative", function () {
         const stack = new _.Stack<number>();
         stack.push(1);
         stack.push(2);
@@ -109,8 +109,8 @@ describe("06_stack", () => {
       });
     });
 
-    context("when adding items to the stack", () => {
-      it("should increase", () => {
+    context("when adding items to the stack", function () {
+      it("should increase", function () {
         const stack = new _.Stack<number>();
         expect(stack.size).to.be.equal(0);
 
@@ -122,8 +122,8 @@ describe("06_stack", () => {
       });
     });
 
-    context("when removing items from the stack", () => {
-      it("should decrease", () => {
+    context("when removing items from the stack", function () {
+      it("should decrease", function () {
         const stack = new _.Stack<number>();
         stack.push(1);
         stack.push(1);
