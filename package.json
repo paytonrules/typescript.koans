@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "pretest": "npm install",
+    "prestart": "npm install",
     "test": "mocha --opts mocha.opts *.test.ts",
+    "start": "mocha --opts mocha.opts *.test.ts",
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
