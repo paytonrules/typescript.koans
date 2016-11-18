@@ -7,3 +7,4 @@ lodash.d.ts
 npm-debug.log
 *.js
 lodash.d._ts
+.vscode/

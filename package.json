@@ -6,8 +6,8 @@
   "scripts": {
     "pretest": "npm install",
     "prestart": "npm install",
-    "test": "mocha --opts mocha.opts *.test.ts",
-    "start": "mocha --opts mocha.opts *.test.ts",
+    "test": "mocha test/*.test.ts",
+    "start": "npm run test:watch",
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
