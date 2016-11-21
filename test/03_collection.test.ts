@@ -64,9 +64,9 @@ describe("03_collection", function () {
       context("when iteratee always returns true", function () {
         it("should return true", function () {
           const collection: _.Dictionary<number> = {
-            'a': 1,
-            'b': 2,
-            'c': 3
+            "a": 1,
+            "b": 2,
+            "c": 3
           };
           const iteratee = sinon.stub().returns(true);
           expect(_.every<number>(collection, iteratee)).to.be.equal(true);
@@ -76,9 +76,9 @@ describe("03_collection", function () {
       context("when iteratee returns false", function () {
         it("should return false and exit early", function () {
           const collection: _.Dictionary<number> = {
-            'a': 1,
-            'b': 2,
-            'c': 3
+            "a": 1,
+            "b": 2,
+            "c": 3
           };
           const iteratee = sinon.stub().returns(false);
           expect(_.every<number>(collection, iteratee)).to.be.equal(false);
@@ -124,17 +124,34 @@ describe("03_collection", function () {
       context("when iteratee always returns true", function () {
         it("should return true", function () {
           const collection: _.Dictionary<number> = {
-            'a': 1,
-            'b': 2,
-            'c': 3
+            "a": 1,
+            "b": 2,
+            "c": 3
           };
-          const iteratee = (v, k) => !(v === 2 && k === 'b');
+          const iteratee = (v, k) => !(v === 2 && k === "b");
           expect(_.filter<number>(collection, iteratee)).to.deep.equal({
-            'a': 1,
-            'c': 3
+            "a": 1,
+            "c": 3
           });
         });
       });
+    });
+  });
+
+  describe("map", () => {
+    it("should apply a function to every value in an array", () => {
+      const squaredValues = _.map([4, 2, 3, 9], (item) => item * item);
+      expect(squaredValues).to.deep.equal([16, 4, 9, 81]);
+    });
+
+    it("should apply a function to every value in an object", () => {
+      const collection: _.Dictionary<number> = {
+        "a": 1,
+        "b": 2
+      };
+      const iteratee = (value, key) => [value, key];
+      const squaredValues = _.map(collection, iteratee);
+      expect(squaredValues).to.deep.equal([[1, "a"], [2, "b"]]);
     });
   });
 });
