@@ -192,7 +192,7 @@ export function nth() {
  *
  * ## Examples
  * // We can also use something called "union types" here.
- * _.zip<string | number | boolean>(["a", "b"], [1, 2], [true, false])). => "a", 1, true], ["b", 2, false]]
+ * _.zip<string | number | boolean>(["a", "b"], [1, 2], [true, false]) => [["a", 1, true], ["b", 2, false]]
  */
 export function zip() {
 }
