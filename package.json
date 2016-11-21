@@ -7,14 +7,14 @@
     "pretest": "npm install",
     "prestart": "npm install",
     "test": "mocha test/*.test.ts",
-    "start": "npm run test:watch",
+    "start": "npm run lint && npm run test:watch",
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
-    "lint": "tslint -c tslint.json *.ts",
     "build:web": "webpack --watch",
     "live": "live-server",
-    "web": "npm-run-all --parallel build:web live"
+    "web": "npm-run-all --parallel build:web live",
+    "lint": "tslint \"./src/01_intro.ts\" --formatters-dir=\"./node_modules/tslint-stylish\" --format=\"stylish\"   --exclude=\"./test/*.ts\" "
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "ts-node": "^1.6.0",
     "ts-node-warnings": "^1.6.0",
     "tslint": "^3.15.1",
+    "tslint-stylish": "^2.1.0-beta",
     "typescript": "^2.0.3"
   }
 }
