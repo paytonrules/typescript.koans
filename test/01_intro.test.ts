@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as sinon from "sinon";
 import * as _ from "../src/01_intro";
 
-describe("01_util", function () {
+describe("01_intro", function () {
   describe("addNumbers", function () {
     it("should add two numbers", function () {
       expect(_.addNumbers(1, 2)).to.be.equal(3);
