@@ -100,7 +100,7 @@ export function filter() {
  *  let collection = [1, 2, 3];
  *  let iteratee = x => x * 3;
  *
- *   _.filter<number>(collection, iteratee) => [3, 6, 9]
+ *   _.map<number>(collection, iteratee) => [3, 6, 9]
  *
  *  collection: _.Dictionary<number> = {
  *    'a': 1,
@@ -108,7 +108,7 @@ export function filter() {
  *   };
  *  iteratee = (value, key) => [value, key];
  *
- *  _.filter<number>(collection, iteratee) => [[1,'a'], [2, 'b']]
+ *  _.map<number>(collection, iteratee) => [[1,'a'], [2, 'b']]
  */
 export function map() {
 }
@@ -128,7 +128,7 @@ export function map() {
  *      if (!result[value]) {
  *        result[value] = [];
  *      }
- *      result.push(key);
+ *      result[value].push(key);
  *      return result;
  *    }, {}); => { '1': ['a', 'c'], '2': ['b'] }
  *
