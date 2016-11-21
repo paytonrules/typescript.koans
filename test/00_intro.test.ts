@@ -1,4 +1,4 @@
-import * as _ from "./00_intro";
+import * as _ from "../src/00_intro";
 import { expect } from "chai";
 
 describe("00_intro", function () {

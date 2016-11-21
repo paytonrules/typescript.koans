@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import * as _ from "./04_export";
+import * as _ from "../src/04_export";
 
 describe("04_export", function () {
   const names = [

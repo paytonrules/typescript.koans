@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import * as _ from "./06_stack";
+import * as _ from "../src/06_stack";
 
 describe("06_stack", function () {
   describe("push", function () {

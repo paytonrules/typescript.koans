@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import * as sinon from "sinon";
-import * as _ from "./02_array";
+import * as _ from "../src/02_array";
 
 describe("02_array", function () {
   describe("chunk", function () {

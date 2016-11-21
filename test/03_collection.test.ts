@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import * as sinon from "sinon";
-import * as _ from "./03_collection";
+import * as _ from "../src/03_collection";
 
 describe("03_collection", function () {
   describe("forEach", function () {
