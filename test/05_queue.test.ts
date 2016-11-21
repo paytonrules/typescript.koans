@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { NumberQueue, Queue } from "./05_queue";
+import { NumberQueue, Queue } from "../src/05_queue";
 
 describe("05_queue", function () {
   describe("NumberQueue", function () {

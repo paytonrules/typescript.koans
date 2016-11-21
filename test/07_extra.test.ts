@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import * as sinon from "sinon";
-import * as _ from "./07_extra";
+import * as _ from "../src/07_extra";
 
 describe("07_extra", function () {
   describe("join", function () {
