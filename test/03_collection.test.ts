@@ -140,7 +140,10 @@ describe("03_collection", function () {
 
   describe("map", () => {
     it("should apply a function to every value in an array", () => {
-      const squaredValues = _.map([4, 2, 3, 9], (item) => item * item);
+      const collection = [4, 2, 3, 9];
+      const iteratee = (item) => item * item;
+      const squaredValues = _.map(collection, (item) => item * item);
+      
       expect(squaredValues).to.deep.equal([16, 4, 9, 81]);
     });
 
