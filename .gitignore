@@ -5,6 +5,8 @@ tmp/
 typings/
 lodash.d.ts
 npm-debug.log
-*.js
+src/*.js
+test/*.js
 lodash.d._ts
 .vscode/
+dist/
