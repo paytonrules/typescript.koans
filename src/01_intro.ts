@@ -43,7 +43,7 @@ export function identity(item) {
 // attempt applies the passed in function with the supplied arguments. If the
 // function throws an error, the error is being returned. If the function does
 // not throw an error, the result is being returned.
-export function attempt<T>(func: (...args: any[]) => T, ...args: any[]): T|Error {
+export function attempt(func, ...args) {
   try {
     return func(...args);
   } catch(err) {
