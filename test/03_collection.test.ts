@@ -143,7 +143,7 @@ describe("03_collection", function () {
       const collection = [4, 2, 3, 9];
       const iteratee = (item) => item * item;
       const squaredValues = _.map(collection, (item) => item * item);
-      
+
       expect(squaredValues).to.deep.equal([16, 4, 9, 81]);
     });
 
@@ -156,5 +156,33 @@ describe("03_collection", function () {
       const squaredValues = _.map(collection, iteratee);
       expect(squaredValues).to.deep.equal([[1, "a"], [2, "b"]]);
     });
+  });
+
+  describe("reduce", function () {
+    it("should be able to sum up an array", function () {
+      const collection = [1, 2, 3];
+      let seed = 0;
+      const add = (tally, item) => tally + item;
+      const total = _.reduce(collection, add, seed);
+
+      expect(total).to.equal(6);
+    });
+
+    it("should be able to transform an object", function () {
+      const collection = { 'a': 1, 'b': 2, 'c': 1 };
+      let seed = {};
+      const iteratee = (result, value, key) => {
+        if (!result[value]) {
+          result[value] = [];
+        }
+        result[value].push(key);
+        return result;
+      };
+      const actual = _.reduce(collection, iteratee, seed);
+      const expected = { '1': ['a', 'c'], '2': ['b'] };
+
+      expect(actual).to.equal(expected);
+    });
+
   });
 });
