@@ -11,7 +11,10 @@
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
-    "lint": "tslint -c tslint.json *.ts"
+    "lint": "tslint -c tslint.json *.ts",
+    "build:web": "webpack --watch",
+    "live": "live-server",
+    "web": "npm-run-all --parallel build:web live"
   },
   "repository": {
     "type": "git",
@@ -24,14 +27,17 @@
   },
   "homepage": "https://github.com/hackages/typescript.koans#readme",
   "devDependencies": {
-    "ts-node-warnings": "^1.6.0",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
     "@types/sinon": "^1.16.31",
     "chai": "^3.5.0",
+    "live-server": "^1.1.0",
     "mocha": "^3.1.2",
+    "npm-run-all": "^3.1.1",
     "sinon": "^1.17.6",
+    "ts-loader": "^1.2.2",
     "ts-node": "^1.6.0",
+    "ts-node-warnings": "^1.6.0",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3"
   }
