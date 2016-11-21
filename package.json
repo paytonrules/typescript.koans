@@ -11,10 +11,10 @@
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
-    "lint": "tslint \"./src/00_intro.ts\" --formatters-dir=\"./node_modules/tslint-stylish\" --format=\"stylish\"   --exclude=\"./test/*.ts\" ",
     "build:web": "webpack --watch",
     "live": "live-server",
-    "web": "npm-run-all --parallel build:web live"
+    "web": "npm-run-all --parallel build:web live",
+    "lint": "tslint \"./src/01_intro.ts\" --formatters-dir=\"./node_modules/tslint-stylish\" --format=\"stylish\"   --exclude=\"./test/*.ts\" "
   },
   "repository": {
     "type": "git",
