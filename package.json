@@ -13,7 +13,8 @@
     "build:watch": "tsc --pretty --watch",
     "build:web": "webpack --watch",
     "live": "live-server",
-    "web": "npm-run-all --parallel build:web live",
+    "web": "npm-run-all --parallel web:ts build:web live",
+    "web:ts": "watch 'tsc --pretty --outDir dist/trash > tsc.log' src/",
     "lint": "tslint \"./src/01_intro.ts\" --formatters-dir=\"./node_modules/tslint-stylish\" --format=\"stylish\"   --exclude=\"./test/*.ts\" "
   },
   "repository": {
@@ -29,17 +30,18 @@
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",
-    "@types/sinon": "^1.16.31",
     "chai": "^3.5.0",
+    "imports-loader": "^0.6.5",
     "live-server": "^1.1.0",
     "mocha": "^3.1.2",
     "npm-run-all": "^3.1.1",
-    "sinon": "^1.17.6",
+    "sinon": "^2.0.0-pre.4",
     "ts-loader": "^1.2.2",
     "ts-node": "^1.6.0",
     "ts-node-warnings": "^1.6.0",
     "tslint": "^3.15.1",
     "tslint-stylish": "^2.1.0-beta",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.3"
   }
 }
