@@ -11,3 +11,4 @@ lodash.d._ts
 .vscode/
 dist/
 *.log
+.idea/
