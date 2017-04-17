@@ -51,6 +51,8 @@ describe("01_intro", function () {
       const func = sinon.spy();
       _.attempt(func, 1, 2, 3);
       sinon.assert.calledWithExactly(func, 1, 2, 3);
+      _.attempt(func, {}, 'Hackages', 'HvA', 3);
+      sinon.assert.calledWithExactly(func, {}, 'Hackages', 'HvA', 3);
     });
   });
 
