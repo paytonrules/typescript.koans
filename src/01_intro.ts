@@ -62,13 +62,12 @@ export function constant(value) {
 // ### noop
 // noop can be called with arbitrary arguments, it will always return
 // `undefined`.
-export function noop() {
-  return undefined;
-}
+export function noop() {}
 
 // ### times
 // times invokes the passed in iteratee (2nd argument) n times. It returns an
 // array of results.
 export function times(n, iteratee) {
+  // If the fill function doesn't exist then implement it...
   return Array(n).fill().map((o, i) => iteratee(i));
 }
