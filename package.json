@@ -7,7 +7,7 @@
     "pretest": "npm install",
     "prestart": "npm install",
     "test": "mocha test/*.test.ts",
-    "start": "npm run lint && npm run test:watch",
+    "start": "npm run test:watch && npm run lint",
     "test:watch": "npm test -- --watch",
     "build": "tsc --pretty",
     "build:watch": "tsc --pretty --watch",
